@@ -129,7 +129,8 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 .profile-head .role { margin-top: 8px; color: var(--muted); font-size: 1.1rem; }
 .profile-head { padding-block: 28px 40px; }
 
-.brand img { height: 40px; width: auto; display: block; }
+.brand img { height: 72px; width: auto; display: block; }
+@media (max-width: 760px) { .brand img { height: 52px; } }
 /* About logo: no panel behind it, about half the screen on desktop, near full width on phones */
 .logo-panel { display: block; margin-top: 28px; }
 .logo-panel img { display: block; width: min(100%, 50vw); min-width: min(100%, 22rem); height: auto; }
@@ -188,7 +189,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   <header class="site">
     <!-- Logo files: put them in an "assets" folder next to this file (or next to index.html directly).
          Preferred names: rafraaf-logo-horizontal.png and rafraaf-logo-combo.png -->
-    <a class="brand" href="#home" id="brand"><img id="logo" data-src="Logo-Horizontal lockup@2x|rafraaf-logo-horizontal|Logo · Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
+    <a class="brand" href="#home" id="brand"><img id="logo" data-src="rafraaf-logo-header-dark-text|Logo-Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
     <nav id="nav" aria-label="Main" data-ar-aria="التنقل الرئيسي">
       <a href="#about" data-nav="about" data-ar="من نحن">About</a>
       <a href="#zohal" data-nav="zohal" data-ar="زحل">Zohal</a>
