@@ -3,9 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Zohal, an animated feature film by Rafraaf Studios.">
+<title>Rafraaf | رَفراف</title>
+<meta name="description" content="Rafraaf (رَفراف) is a Saudi family entertainment studio making original animated films and series. Now developing Zohal, an animated feature film.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rafraaf | رَفراف">
+<meta property="og:title" content="Rafraaf | رَفراف">
+<meta property="og:description" content="A Saudi family entertainment studio. Now developing Zohal, an animated feature film.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2317807C'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23E9B655'/%3E%3C/svg%3E">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Zohal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap">
@@ -118,7 +124,7 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 .brand img { height: 40px; width: auto; display: block; }
 .logo-panel { display: inline-block; background: #F7F8FC; border-radius: 12px; padding: 20px 28px; margin-top: 20px; max-width: 100%; }
 .logo-panel img { display: block; height: 80px; width: auto; max-width: 100%; }
-.poster { width: 100%; height: auto; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
+.poster { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
 .icons { display: flex; flex-wrap: wrap; gap: 14px; }
 .icon-btn { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; padding: 0; font: inherit; text-decoration: none; }
 .icon-btn:hover { color: var(--accent-ink); border-color: var(--accent); }
@@ -149,7 +155,9 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
 <body>
 <div class="wrap" id="wrap" lang="ar" dir="rtl">
   <header class="site">
-    <a class="brand" href="#zohal" id="brand"><img id="logo" data-base="assets/Logo · Horizontal lockup@2x" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
+    <!-- Logo files: put them in an "assets" folder next to this file (or next to index.html directly).
+         Preferred names: rafraaf-logo-horizontal.png and rafraaf-logo-combo.png -->
+    <a class="brand" href="#zohal" id="brand"><img id="logo" data-src="Logo-Horizontal lockup@2x|rafraaf-logo-horizontal|Logo · Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
     <nav id="nav" aria-label="Main" data-ar-aria="التنقل الرئيسي">
       <a href="#zohal" data-nav="zohal" data-ar="زحل">Zohal</a>
       <a href="#about" data-nav="about" data-ar="من نحن">About</a>
@@ -204,7 +212,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
       </div>
 
       <section class="block">
-        <h2 data-ar="قيد التطوير">Development</h2>
+        <h2 data-ar="مراحل التطوير">Development</h2>
         <p class="lede" data-ar="أين وصل المشروع الآن.">Where the project is right now.</p>
         <div class="track">
           <div class="step">
@@ -229,18 +237,18 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
     <div class="view" id="view-about" hidden>
       <div class="profile-head">
         <p class="eyebrow" data-ar="من نحن">About</p>
-        <h1 style="margin-top:10px" data-ar="استوديوهات رفراف">Rafraaf Studios</h1>
+        <h1 style="margin-top:10px" data-ar="استوديوهات رَفراف">Rafraaf Studios</h1>
         <p class="role" id="about-role"><span lang="ar" dir="rtl" style="font-family:var(--font-arabic);font-size:1.4rem;color:var(--accent-ink)">رَفراف</span></p>
-        <div class="logo-panel" id="about-logo-panel" hidden><img id="about-logo" data-base="assets/Rafraaf-Combo2-transparent-darktext@2x" alt="Rafraaf Studios"></div>
+        <div class="logo-panel" id="about-logo-panel" hidden><img id="about-logo" data-src="rafraaf-logo-combo|Rafraaf-Combo2-transparent-darktext@2x" data-ext="logo" alt="Rafraaf Studios"></div>
       </div>
       <div class="prose" style="padding-bottom:48px">
-        <p data-ar="رفراف استوديو سعودي للترفيه العائلي، يصنع أفلامًا ومسلسلات أصلية تجمع أفراد العائلة معًا، وألعابًا في المستقبل.">Rafraaf is a Saudi family entertainment studio that creates original films and series for the whole family to enjoy together, and, in time, games.</p>
+        <p data-ar="رَفراف استوديو سعودي للترفيه العائلي، يصنع أفلامًا ومسلسلات أصلية تجمع أفراد العائلة معًا، وألعابًا في المستقبل.">Rafraaf is a Saudi family entertainment studio that creates original films and series for the whole family to enjoy together, and, in time, games.</p>
         <p data-ar="نصنع قصصًا تشبه العودة إلى البيت: طريفة ودافئة ومليئة بالمشاعر. شخصياتنا محبوبة، وعوالمنا زاخرة بالدهشة، وحكاياتنا متجذّرة في لغتنا وثقافتنا وفي اللحظات اليومية التي تعرفها العائلات. وحين تنطفئ الأضواء، نريد أن تشعر كل عائلة بالوعد الهادئ نفسه: أنتم في أيدٍ أمينة، وكل شيء سيكون بخير.">We make stories that feel like coming home: whimsical, cozy and full of heart. Our characters are lovable, our worlds are full of wonder, and our stories are rooted in our language, our culture and the everyday moments families recognise. When the lights go down, we want every family to feel the same quiet promise: you're in good hands, and everything will be okay.</p>
         <p data-ar="تبدأ قصصنا في المملكة العربية السعودية، لكنها صُنعت لتصل إلى العائلات في أنحاء العالم العربي، وإلى البيوت المسلمة في كل مكان.">Our stories begin in Saudi Arabia, but they're made to travel to families across the Arab world and Muslim households everywhere.</p>
       </div>
 
       <section class="block">
-        <h2 data-ar="لماذا رفراف؟">Why Rafraaf?</h2>
+        <h2 data-ar="لماذا رَفراف؟">Why Rafraaf?</h2>
         <div class="prose" style="margin-top:16px">
           <p data-ar="الرفراف طائر يعيش بين أشجار المانغروف على ساحل البحر الأحمر. يحوم فوق الماء مرفرفًا في مكانه، ثم يغوص عبر السطح إلى عالم آخر. هذا ما نأمل أن تفعله كل قصة: أن تلفت انتباهك، وتأسرك للحظة، ثم تحملك إلى مكان جديد. والاسم نفسه مأخوذ من الكلمة العربية «رفرفة»، صوت خفقان الأجنحة.">The rafraaf is a kingfisher that lives in the mangroves of the Red Sea coast. It hovers above the water, fluttering in place, then dives through the surface into another world. That's what we hope every story does: it catches your eye, holds you for a moment, then carries you somewhere new. The name itself comes from the Arabic rafrafa, the sound of wings fluttering.</p>
         </div>
@@ -249,7 +257,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
       <section class="block">
         <h2 data-ar="المؤسِّسة">Founder</h2>
         <div class="prose" style="margin-top:16px">
-          <p data-ar="أسّست رفراف مريم خياط، منتجة ومخرجة رسوم متحركة مقيمة في جدة، وقد فاز فيلمها القصير «وحش من السماء» في مهرجان أفلام السعودية عام 2023. تمتلك أكثر من 15 عامًا من الخبرة في الرسوم المتحركة وإنتاج الأفلام والتعليم.">Rafraaf was founded by Mariam Khayat, an animation producer and director based in Jeddah, whose animated short The Menace from Above won at the Saudi Film Festival in 2023. She brings more than 15 years of experience across animation, film production and education.</p>
+          <p data-ar="أسّست رَفراف مريم خياط، منتجة ومخرجة رسوم متحركة مقيمة في جدة، وقد فاز فيلمها القصير «وحش من السماء» في مهرجان أفلام السعودية عام 2023. تمتلك أكثر من 15 عامًا من الخبرة في الرسوم المتحركة وإنتاج الأفلام والتعليم.">Rafraaf was founded by Mariam Khayat, an animation producer and director based in Jeddah, whose animated short The Menace from Above won at the Saudi Film Festival in 2023. She brings more than 15 years of experience across animation, film production and education.</p>
         </div>
       </section>
 
@@ -258,7 +266,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
         <p class="lede" data-ar="ثلاثة أفلام رسوم متحركة قصيرة كتبتها وأخرجتها مريم خياط.">Three short animations written and directed by Mariam Khayat.</p>
         <div class="cols">
           <article class="card">
-            <img class="poster" data-base="assets/TMFA_Poster" alt="" hidden>
+            <img class="poster" data-src="TMFA_Poster|https://mariamkhayat.com/TMFA_Poster.jpeg" data-ext="poster" alt="Poster for The Menace from Above" data-ar-alt="ملصق فيلم وحش من السماء" hidden>
             <span class="tag" data-ar="رسوم متحركة قصيرة · 2023">Short animation · 2023</span>
             <h3 data-ar="وحش من السماء">The Menace from Above</h3>
             <span class="ar-title" lang="ar" dir="rtl" data-ar="The Menace from Above" data-ar-latin>وحش من السماء</span>
@@ -270,7 +278,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
             </div>
           </article>
           <article class="card">
-            <img class="poster" data-base="assets/BFF_Poster" alt="" hidden>
+            <img class="poster" data-src="BFF_Poster|https://mariamkhayat.com/BFF_Poster.jpg" data-ext="poster" alt="Poster for Best Friends Forever" data-ar-alt="ملصق فيلم أصدقاء للأبد" hidden>
             <span class="tag" data-ar="رسوم متحركة قصيرة · 2020">Short animation · 2020</span>
             <h3 data-ar="أصدقاء للأبد">Best Friends Forever</h3>
             <span class="ar-title" lang="ar" dir="rtl" data-ar="Best Friends Forever" data-ar-latin>أصدقاء للأبد</span>
@@ -282,7 +290,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
             </div>
           </article>
           <article class="card">
-            <img class="poster" data-base="assets/LOTH_Poster" alt="" hidden>
+            <img class="poster" data-src="LOTH_Poster|https://mariamkhayat.com/LOTH_Poster.jpg" data-ext="poster" alt="Poster for Labyrinth of the Heart" data-ar-alt="ملصق فيلم متاهة قلب" hidden>
             <span class="tag" data-ar="رسوم متحركة رقمية ثنائية الأبعاد · 2018">2D digital short · 2018</span>
             <h3 data-ar="متاهة قلب">Labyrinth of the Heart</h3>
             <span class="ar-title" lang="ar" dir="rtl" data-ar="Labyrinth of the Heart" data-ar-latin>متاهة قلب</span>
@@ -302,7 +310,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
       <div class="profile-head">
         <p class="eyebrow" data-ar="تواصل معنا">Contact</p>
         <h1 style="margin-top:10px" data-ar="يسعدنا أن نسمع منك">Get in touch</h1>
-        <p class="role" style="max-width:34rem" data-ar="للاستفسار عن زحل وأعمال استوديوهات رفراف.">For questions about Zohal and the work of Rafraaf Studios.</p>
+        <p class="role" style="max-width:34rem" data-ar="للاستفسار عن زحل وأعمال استوديوهات رَفراف.">For questions about Zohal and the work of Rafraaf Studios.</p>
       </div>
       <div class="icons">
         <a class="icon-btn" href="https://www.instagram.com/rafraafstudios/" target="_blank" rel="noopener" aria-label="Instagram" data-ar-aria="إنستغرام">
@@ -324,7 +332,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   </main>
 
   <footer class="site">
-    <span data-ar="© 2026 استوديوهات رفراف">© 2026 Rafraaf Studios</span>
+    <span data-ar="© 2026 استوديوهات رَفراف">© 2026 Rafraaf Studios</span>
   </footer>
 </div>
 
@@ -334,6 +342,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   var views = ["zohal", "about", "contact"];
   var texts = document.querySelectorAll("[data-ar]");
   var arias = document.querySelectorAll("[data-ar-aria]");
+  var alts = document.querySelectorAll("[data-ar-alt]");
   var enOnly = document.querySelectorAll("[data-en-only]");
   var navLinks = document.querySelectorAll("nav a[data-nav]");
   var toggle = document.getElementById("lang-toggle");
@@ -342,6 +351,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   // remember the English copy so switching back restores it
   texts.forEach(function (n) { n.setAttribute("data-en", n.textContent); });
   arias.forEach(function (n) { n.setAttribute("data-en-aria", n.getAttribute("aria-label")); });
+  alts.forEach(function (n) { n.setAttribute("data-en-alt", n.getAttribute("alt")); });
 
   function setLatin(n, on) {
     if (on) {
@@ -362,6 +372,8 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   function render() {
     var r = parse(), ar = r.lang === "ar";
     document.getElementById("email-note").hidden = true;
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
     wrap.lang = ar ? "ar" : "en";
     wrap.dir = ar ? "rtl" : "ltr";
     texts.forEach(function (n) {
@@ -370,6 +382,9 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
     });
     arias.forEach(function (n) {
       n.setAttribute("aria-label", ar ? n.getAttribute("data-ar-aria") : n.getAttribute("data-en-aria"));
+    });
+    alts.forEach(function (n) {
+      n.setAttribute("alt", ar ? n.getAttribute("data-ar-alt") : n.getAttribute("data-en-alt"));
     });
     enOnly.forEach(function (n) { n.hidden = ar; });
 
@@ -407,27 +422,44 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
     window.location.href = "mailto:" + addr;
   });
 
-  // Images live in the assets folder; try the usual extensions until one loads.
-  function loadImg(img, exts, onOk) {
-    var base = encodeURI(img.getAttribute("data-base")), i = 0;
+  // Images: each data-src lists names separated by "|". A full URL is tried as-is.
+  // A bare name is tried in the "assets" folder and next to index.html, with common extensions.
+  var EXT = {
+    logo: [".png", ".svg", ".webp", ".PNG"],
+    poster: [".jpg", ".jpeg", ".png", ".webp", ".JPG", ".JPEG", ".PNG"]
+  };
+  function candidates(img) {
+    var exts = EXT[img.getAttribute("data-ext")] || [""];
+    var out = [];
+    img.getAttribute("data-src").split("|").forEach(function (name) {
+      if (/^https?:\/\//.test(name)) { out.push(name); return; }
+      ["assets/assets/", "assets/", ""].forEach(function (dir) {
+        exts.forEach(function (e) { out.push(encodeURI(dir + name + e)); });
+      });
+    });
+    return out;
+  }
+  function loadImg(img, onOk) {
+    var list = candidates(img), i = 0;
     function next() {
-      if (i >= exts.length) { img.remove(); return; }
-      img.src = base + exts[i++];
+      if (i >= list.length) {
+        console.warn("[Rafraaf] Image not found. Tried:", list);
+        img.remove(); return;
+      }
+      img.src = list[i++];
     }
     img.addEventListener("load", function () { img.hidden = false; if (onOk) onOk(); });
     img.addEventListener("error", next);
     next();
   }
-  var LOGO_EXT = [".png", ".svg", ".webp", ".PNG", ".jpg"];
-  var POSTER_EXT = [".jpg", ".jpeg", ".png", ".webp", ".JPG", ".JPEG", ".PNG"];
-  loadImg(document.getElementById("logo"), LOGO_EXT, function () {
+  loadImg(document.getElementById("logo"), function () {
     document.getElementById("brand-text").hidden = true;
   });
-  loadImg(document.getElementById("about-logo"), LOGO_EXT, function () {
+  loadImg(document.getElementById("about-logo"), function () {
     document.getElementById("about-logo-panel").hidden = false;
     document.getElementById("about-role").hidden = true;
   });
-  document.querySelectorAll("img.poster").forEach(function (img) { loadImg(img, POSTER_EXT); });
+  document.querySelectorAll("img.poster").forEach(function (img) { loadImg(img); });
 
   window.addEventListener("hashchange", function () { render(); window.scrollTo(0, 0); });
   render();
