@@ -10,7 +10,7 @@
 <meta property="og:title" content="Rafraaf | رَفراف">
 <meta property="og:description" content="A Saudi family entertainment studio. Now developing Zohal, an animated feature film.">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2317807C'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23E9B655'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" id="favicon" href="assets/favicon.png">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,14 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 
 .prose { display: grid; gap: 16px; max-width: 40rem; }
 
+/* About page: everything centred */
+#view-about { text-align: center; }
+#view-about .profile-head, #view-about .prose, #view-about .lede { margin-inline: auto; }
+#view-about .prose { justify-items: center; }
+#view-about .logo-panel img { margin-inline: auto; }
+#view-about .card { align-items: center; }
+#view-about .card .links { justify-content: center; }
+
 .profile-head h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
 .profile-head .role { margin-top: 8px; color: var(--muted); font-size: 1.1rem; }
 .profile-head { padding-block: 28px 40px; }
@@ -135,9 +143,14 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 }
 
 /* Landing: just the logo */
-.landing { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; align-content: center; gap: 28px; padding-block: 40px; text-align: center; }
-.landing-logo { display: block; text-decoration: none; }
-.landing-logo img { width: min(86vw, 44rem); height: auto; margin: 0 auto; }
+/* Landing: the banner fills the whole screen */
+.landing { position: fixed; inset: 0; z-index: 5; background: var(--bg); text-align: center; }
+.landing-logo { position: absolute; inset: 0; display: grid; place-items: center; text-decoration: none; }
+.landing-logo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+/* On tall phone screens, show the whole banner instead of cropping its sides */
+@media (max-aspect-ratio: 1/1) { .landing-logo img { object-fit: contain; } }
+.landing .landing-links { position: absolute; left: 0; right: 0; bottom: max(28px, env(safe-area-inset-bottom, 0px)); }
+.landing .landing-links a { background: var(--surface); }
 .landing-fallback { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(4.5rem, 16vw, 9rem); color: var(--accent-ink); line-height: 1.2; }
 .landing-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .landing-links a { text-decoration: none; font-weight: 600; padding: 8px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
@@ -188,8 +201,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
     <!-- LANDING -->
     <div class="view landing" id="view-home">
       <a class="landing-logo" href="#about" id="landing-logo" aria-label="Rafraaf, enter the site" data-ar-aria="رَفراف، ادخل إلى الموقع">
-        <img class="logo-on-light" data-src="Rafraaf-Combo2-transparent-darktext@2x" data-ext="logo" alt="" hidden>
-        <img class="logo-on-dark" data-src="Rafraaf-Combo2-transparent@2x" data-ext="logo" alt="" hidden>
+        <img data-src="YouTube banner 2560×1440@1x|YouTube banner 2560×1440@2x|YouTube banner 2560x1440@1x|YouTube banner 2560x1440@2x" data-ext="poster" alt="" hidden>
         <span class="landing-fallback" id="landing-fallback" lang="ar" dir="rtl">رَفراف</span>
       </a>
       <div class="landing-links">
@@ -508,6 +520,15 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
     loadImg(img, function () { document.getElementById("landing-fallback").hidden = true; });
   });
   document.querySelectorAll("img.poster").forEach(function (img) { loadImg(img); });
+
+  // Tab icon: find favicon.png in assets/, assets/assets/ or next to index.html
+  (function () {
+    var tries = ["assets/favicon.png", "assets/assets/favicon.png", "favicon.png", "Assets/favicon.png"], i = 0;
+    var probe = new Image();
+    probe.onload = function () { document.getElementById("favicon").href = tries[i - 1]; };
+    probe.onerror = function () { if (i < tries.length) probe.src = tries[i++]; };
+    probe.src = tries[i++];
+  })();
 
   window.addEventListener("hashchange", function () { render(); window.scrollTo(0, 0); });
   render();
