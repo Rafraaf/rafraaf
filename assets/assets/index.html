@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rafraaf | رَفراف</title>
+<meta name="description" content="Rafraaf (رَفراف) is a Saudi family entertainment studio making original animated films and series. Now developing Zohal, an animated feature film.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rafraaf | رَفراف">
+<meta property="og:title" content="Rafraaf | رَفراف">
+<meta property="og:description" content="A Saudi family entertainment studio. Now developing Zohal, an animated feature film.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" id="favicon" href="assets/favicon.png">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap">
+<style>
+/* Layout: a quiet three-view site (Zohal, About, Contact) in English and Arabic. The ringed planet is the one big gesture; everything else stays plain. */
+:root {
+  --bg: #EDEFF5;
+  --surface: #FFFFFF;
+  --ink: #1A1D3A;
+  --muted: #565B7D;
+  --line: #D3D8E8;
+  --accent: #C9811B;
+  --accent-ink: #8A5200;
+  --glow: #17807C;
+  --planet: #E9B655;
+  --planet-band: #DB9C33;
+  --ring: #1A1D3A;
+  --star: #1A1D3A;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-arabic: "Reem Kufi", "Segoe UI", "Geeza Pro", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11132B; --surface: #1A1D3D; --ink: #ECEEF8; --muted: #A3A8C8; --line: #2C3060;
+    --accent: #F0B445; --accent-ink: #F0B445; --glow: #4FD1C5;
+    --planet: #F0B445; --planet-band: #D99A32; --ring: #ECEEF8; --star: #ECEEF8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11132B; --surface: #1A1D3D; --ink: #ECEEF8; --muted: #A3A8C8; --line: #2C3060;
+  --accent: #F0B445; --accent-ink: #F0B445; --glow: #4FD1C5;
+  --planet: #F0B445; --planet-band: #D99A32; --ring: #ECEEF8; --star: #ECEEF8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 68rem; margin: 0 auto; font-family: var(--font-body); }
+/* Arabic: different faces, no letter-spacing, a little more line height */
+.wrap[dir="rtl"] {
+  --font-display: "Reem Kufi", "Segoe UI", "Geeza Pro", sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Segoe UI", "Geeza Pro", system-ui, sans-serif;
+  line-height: 1.8;
+}
+.wrap[dir="rtl"] h1, .wrap[dir="rtl"] h2, .wrap[dir="rtl"] h3 { letter-spacing: 0; line-height: 1.3; }
+.wrap[dir="rtl"] .eyebrow, .wrap[dir="rtl"] .card .tag { letter-spacing: 0; text-transform: none; }
+.wrap[dir="rtl"] .brand { font-family: var(--font-arabic); }
+
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+/* header */
+header.site { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 20px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; }
+.brand .ar { font-family: var(--font-arabic); font-weight: 700; color: var(--accent-ink); font-size: 1.5rem; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+nav a { text-decoration: none; color: var(--muted); font-weight: 500; padding: 8px 14px; border-radius: 999px; }
+nav a:hover { color: var(--ink); }
+nav a[aria-current="page"] { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+nav a.lang { color: var(--accent-ink); font-weight: 600; box-shadow: inset 0 0 0 1px var(--line); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 32px 48px; align-items: center; padding-block: 28px 56px; }
+.wordmark-ar { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(4.5rem, 14vw, 8.5rem); line-height: 1.1; color: var(--accent-ink); }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 4px; font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; }
+.format { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.pill { font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); background: var(--surface); }
+.pill.live { color: var(--glow); box-shadow: inset 0 0 0 1px var(--glow); background: transparent; }
+.logline { margin-top: 24px; font-size: 1.2rem; line-height: 1.55; max-width: 36rem; }
+.wrap[dir="rtl"] .logline { line-height: 1.9; }
+.art { width: 100%; max-width: 30rem; justify-self: center; height: auto; }
+
+/* sections */
+section.block { padding-block: 48px; border-top: 1px solid var(--line); }
+section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; margin-bottom: 8px; }
+.lede { color: var(--muted); max-width: 40rem; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; margin-top: 28px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card h3 { font-size: 1.35rem; font-weight: 700; }
+.card .tag { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.card p { color: var(--muted); font-size: 0.98rem; }
+.card .ar-title { font-family: var(--font-arabic); font-size: 1.15rem; color: var(--accent-ink); }
+.card .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto; padding-top: 10px; font-weight: 600; font-size: 0.95rem; }
+.card .award { color: var(--ink); font-size: 0.92rem; }
+
+.track { margin-top: 24px; display: grid; gap: 0; max-width: 46rem; }
+.step { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 4px 28px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.step:last-child { border-bottom: 0; }
+.step .when { font-weight: 600; color: var(--accent-ink); }
+.step h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+.step p { color: var(--muted); }
+
+.prose { display: grid; gap: 16px; max-width: 40rem; }
+
+/* About page: everything centred */
+#view-about { text-align: center; }
+#view-about .profile-head, #view-about .prose, #view-about .lede { margin-inline: auto; }
+#view-about .prose { justify-items: center; }
+#view-about .logo-panel img { margin-inline: auto; }
+#view-about .card { align-items: center; }
+#view-about .card .links { justify-content: center; }
+
+.profile-head h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+.profile-head .role { margin-top: 8px; color: var(--muted); font-size: 1.1rem; }
+.profile-head { padding-block: 28px 40px; }
+
+.brand img { height: 40px; width: auto; display: block; }
+/* About logo: no panel behind it, about half the screen on desktop, near full width on phones */
+.logo-panel { display: block; margin-top: 28px; }
+.logo-panel img { display: block; width: min(100%, 50vw); min-width: min(100%, 22rem); height: auto; }
+@media (max-width: 760px) { .logo-panel img { width: 100%; } }
+
+/* Light/dark logo versions: dark-text logo on light backgrounds, light logo on dark */
+.logo-on-dark { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  .logo-on-light { display: none !important; }
+  .logo-on-dark:not([hidden]) { display: block !important; }
+}
+
+/* Landing: just the logo */
+/* Landing: the banner fills the whole screen */
+.landing { position: fixed; inset: 0; z-index: 5; background: var(--bg); text-align: center; }
+.landing-logo { position: absolute; inset: 0; display: grid; place-items: center; text-decoration: none; }
+.landing-logo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+/* On tall phone screens, show the whole banner instead of cropping its sides */
+@media (max-aspect-ratio: 1/1) { .landing-logo img { object-fit: contain; } }
+.landing .landing-links { position: absolute; left: 0; right: 0; bottom: max(28px, env(safe-area-inset-bottom, 0px)); }
+.landing .landing-links a { background: var(--surface); }
+.landing-fallback { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(4.5rem, 16vw, 9rem); color: var(--accent-ink); line-height: 1.2; }
+.landing-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.landing-links a { text-decoration: none; font-weight: 600; padding: 8px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+.wrap.is-home header.site, .wrap.is-home footer.site { display: none; }
+.poster { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
+.icons { display: flex; flex-wrap: wrap; gap: 14px; }
+.icon-btn { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; padding: 0; font: inherit; text-decoration: none; }
+.icon-btn:hover { color: var(--accent-ink); border-color: var(--accent); }
+.icon-btn svg { width: 24px; height: 24px; }
+.note { margin-top: 18px; color: var(--muted); }
+.contact-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; max-width: 34rem; }
+.contact-list li { display: flex; justify-content: space-between; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.contact-list li span:first-child { color: var(--muted); font-weight: 600; }
+.contact-list a { font-weight: 600; unicode-bidi: plaintext; }
+
+footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+
+.view[hidden] { display: none !important; }
+[hidden] { display: none !important; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 8px; }
+  .art { max-width: 22rem; order: -1; }
+  .step { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .orbiter { transform-origin: 200px 200px; animation: orbit 60s linear infinite; }
+}
+@keyframes orbit { to { transform: rotate(360deg); } }
+</style>
+
+</head>
+<body>
+<div class="wrap" id="wrap" lang="ar" dir="rtl">
+  <header class="site">
+    <!-- Logo files: put them in an "assets" folder next to this file (or next to index.html directly).
+         Preferred names: rafraaf-logo-horizontal.png and rafraaf-logo-combo.png -->
+    <a class="brand" href="#home" id="brand"><img id="logo" data-src="Logo-Horizontal lockup@2x|rafraaf-logo-horizontal|Logo · Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
+    <nav id="nav" aria-label="Main" data-ar-aria="التنقل الرئيسي">
+      <a href="#about" data-nav="about" data-ar="من نحن">About</a>
+      <a href="#zohal" data-nav="zohal" data-ar="زحل">Zohal</a>
+      <a href="#contact" data-nav="contact" data-ar="تواصل معنا">Contact</a>
+      <a href="#en-zohal" class="lang" id="lang-toggle" lang="en" dir="ltr">English</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LANDING -->
+    <div class="view landing" id="view-home">
+      <a class="landing-logo" href="#about" id="landing-logo" aria-label="Rafraaf, enter the site" data-ar-aria="رَفراف، ادخل إلى الموقع">
+        <img data-src="YouTube banner 2560×1440@1x|YouTube banner 2560×1440@2x|YouTube banner 2560x1440@1x|YouTube banner 2560x1440@2x" data-ext="poster" alt="" hidden>
+        <span class="landing-fallback" id="landing-fallback" lang="ar" dir="rtl">رَفراف</span>
+      </a>
+      <div class="landing-links">
+        <a href="#about" id="landing-enter" data-ar="ادخل">Enter</a>
+        <a href="#en-home" id="landing-lang" lang="en" dir="ltr">English</a>
+      </div>
+    </div>
+
+    <!-- ZOHAL -->
+    <div class="view" id="view-zohal" hidden>
+      <div class="hero">
+        <div>
+          <div class="wordmark-ar" lang="ar" dir="rtl">زحل</div>
+          <h1 lang="en" dir="ltr">Zohal</h1>
+          <div class="format">
+            <span class="pill" data-ar="فيلم رسوم متحركة طويل">Animated feature film</span>
+            <span class="pill" data-ar="85 دقيقة">85 minutes</span>
+            <span class="pill live" data-ar="قيد التطوير">In development</span>
+          </div>
+          <p class="logline" data-ar="بدر، ابن السادسة عشرة، يبني سرًّا روبوتًا بشريّ الشكل يتحوّل إلى سفينة فضاء، في الغرفة الخلفية لمطعم والده. وحين تنضم فرح، المخترعة الموهوبة الطموحة، إلى المطبخ طوال الصيف، يبدأ الروبوت بالكشف عمّا لم يقله بدر بصوتٍ عالٍ.">Sixteen-year-old Badr is secretly building a humanoid robot that turns into a rocketship, in the back room of his father's restaurant. When Farah, a gifted and ambitious fellow inventor, joins the kitchen for the summer, the robot starts to reveal what Badr hasn't said out loud.</p>
+        </div>
+        <svg class="art" viewBox="0 0 400 400" role="img" aria-label="A ringed planet with a small rocketship orbiting it" data-ar-aria="كوكب له حلقات، وحوله سفينة فضاء صغيرة تدور">
+          <defs>
+            <clipPath id="planetClip"><circle cx="200" cy="200" r="92"/></clipPath>
+          </defs>
+          <g fill="var(--star)" opacity="0.55">
+            <circle cx="46" cy="64" r="2.2"/><circle cx="352" cy="52" r="1.8"/><circle cx="372" cy="318" r="2.4"/>
+            <circle cx="64" cy="338" r="1.8"/><circle cx="120" cy="30" r="1.6"/><circle cx="318" cy="372" r="1.6"/>
+            <circle cx="22" cy="200" r="1.8"/><circle cx="388" cy="170" r="1.6"/>
+          </g>
+          <g transform="rotate(-18 200 200)">
+            <path d="M28 200 A172 50 0 0 1 372 200" fill="none" stroke="var(--ring)" stroke-width="12" opacity="0.9"/>
+            <path d="M58 200 A142 38 0 0 1 342 200" fill="none" stroke="var(--ring)" stroke-width="4" opacity="0.6"/>
+            <g clip-path="url(#planetClip)">
+              <rect x="100" y="100" width="200" height="200" fill="var(--planet)"/>
+              <rect x="100" y="150" width="200" height="20" fill="var(--planet-band)"/>
+              <rect x="100" y="196" width="200" height="30" fill="var(--planet-band)" opacity="0.75"/>
+              <rect x="100" y="248" width="200" height="14" fill="var(--planet-band)"/>
+            </g>
+            <path d="M28 200 A172 50 0 0 0 372 200" fill="none" stroke="var(--ring)" stroke-width="12"/>
+            <path d="M58 200 A142 38 0 0 0 342 200" fill="none" stroke="var(--ring)" stroke-width="4" opacity="0.7"/>
+          </g>
+          <g class="orbiter">
+            <g transform="translate(200 44) rotate(90)">
+              <path d="M-14 0 C-6 -9 6 -9 14 0 C6 9 -6 9 -14 0 Z" fill="var(--glow)"/>
+              <path d="M-14 0 L-26 -6 L-22 0 L-26 6 Z" fill="var(--glow)" opacity="0.7"/>
+              <circle cx="4" cy="0" r="2.6" fill="var(--bg)"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <section class="block">
+        <h2 data-ar="مراحل التطوير">Development</h2>
+        <p class="lede" data-ar="أين وصل المشروع الآن.">Where the project is right now.</p>
+        <div class="track">
+          <div class="step">
+            <div class="when" data-ar="سبتمبر إلى ديسمبر 2026">September to December 2026</div>
+            <div>
+              <h3 data-ar="إقامة فيلا الحِجر الإقليمية لكتابة السيناريو">Villa Hegra Regional Scriptwriting Residency</h3>
+              <p data-ar="مختبر لتطوير الأفلام الروائية الطويلة في فيلا الحِجر بالعُلا، المملكة العربية السعودية، على ورشتين: من 18 إلى 22 سبتمبر، ومن 30 نوفمبر إلى 4 ديسمبر. بالشراكة مع فيلم العلا، وتنفيذ Le Groupe Ouest وLIM² (Less is More).">Feature development lab at Villa Hegra in AlUla, Saudi Arabia, with two workshops: September 18 to 22 and November 30 to December 4. Presented with Film AlUla and delivered by Le Groupe Ouest and LIM² (Less is More).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="when" data-ar="ديسمبر 2026">December 2026</div>
+            <div>
+              <h3 data-ar="شبكة، منصة قرطاج للمحترفين">Chabaka, Carthage Pro</h3>
+              <p data-ar="منصة التطوير ضمن أيام قرطاج السينمائية في تونس، التي تُقام من 12 إلى 19 ديسمبر 2026.">The development platform of the Journées Cinématographiques de Carthage in Tunis, which runs December 12 to 19, 2026.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="view" id="view-about" hidden>
+      <div class="profile-head">
+        <p class="eyebrow" data-ar="من نحن">About</p>
+        <h1 style="margin-top:10px" data-ar="استوديوهات رَفراف">Rafraaf Studios</h1>
+        <p class="role" id="about-role"><span lang="ar" dir="rtl" style="font-family:var(--font-arabic);font-size:1.4rem;color:var(--accent-ink)">رَفراف</span></p>
+        <div class="logo-panel" id="about-logo-panel" hidden>
+          <img class="logo-on-light about-logo" data-src="Rafraaf-Combo2-transparent-darktext@2x|rafraaf-logo-combo" data-ext="logo" alt="Rafraaf Studios" hidden>
+          <img class="logo-on-dark about-logo" data-src="Rafraaf-Combo2-transparent@2x" data-ext="logo" alt="Rafraaf Studios" hidden>
+        </div>
+      </div>
+      <div class="prose" style="padding-bottom:48px">
+        <p data-ar="رَفراف استوديو سعودي للترفيه العائلي، يصنع أفلامًا ومسلسلات أصلية تجمع أفراد العائلة معًا، وألعابًا في المستقبل.">Rafraaf is a Saudi family entertainment studio that creates original films and series for the whole family to enjoy together, and, in time, games.</p>
+        <p data-ar="نصنع قصصًا تشبه العودة إلى البيت: طريفة ودافئة ومليئة بالمشاعر. شخصياتنا محبوبة، وعوالمنا زاخرة بالدهشة، وحكاياتنا متجذّرة في لغتنا وثقافتنا وفي اللحظات اليومية التي تعرفها العائلات. وحين تنطفئ الأضواء، نريد أن تشعر كل عائلة بالوعد الهادئ نفسه: أنتم في أيدٍ أمينة، وكل شيء سيكون بخير.">We make stories that feel like coming home: whimsical, cozy and full of heart. Our characters are lovable, our worlds are full of wonder, and our stories are rooted in our language, our culture and the everyday moments families recognise. When the lights go down, we want every family to feel the same quiet promise: you're in good hands, and everything will be okay.</p>
+        <p data-ar="تبدأ قصصنا في المملكة العربية السعودية، لكنها صُنعت لتصل إلى العائلات في أنحاء العالم العربي، وإلى البيوت المسلمة في كل مكان.">Our stories begin in Saudi Arabia, but they're made to travel to families across the Arab world and Muslim households everywhere.</p>
+      </div>
+
+      <section class="block">
+        <h2 data-ar="لماذا رَفراف؟">Why Rafraaf?</h2>
+        <div class="prose" style="margin-top:16px">
+          <p data-ar="الرفراف طائر يعيش بين أشجار المانغروف على ساحل البحر الأحمر. يحوم فوق الماء مرفرفًا في مكانه، ثم يغوص عبر السطح إلى عالم آخر. هذا ما نأمل أن تفعله كل قصة: أن تلفت انتباهك، وتأسرك للحظة، ثم تحملك إلى مكان جديد. والاسم نفسه مأخوذ من الكلمة العربية «رفرفة»، صوت خفقان الأجنحة.">The rafraaf is a kingfisher that lives in the mangroves of the Red Sea coast. It hovers above the water, fluttering in place, then dives through the surface into another world. That's what we hope every story does: it catches your eye, holds you for a moment, then carries you somewhere new. The name itself comes from the Arabic rafrafa, the sound of wings fluttering.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2 data-ar="المؤسِّسة">Founder</h2>
+        <div class="prose" style="margin-top:16px">
+          <p data-ar="أسّست رَفراف مريم خياط، منتجة ومخرجة رسوم متحركة مقيمة في جدة، وقد فاز فيلمها القصير «وحش من السماء» في مهرجان أفلام السعودية عام 2023. تمتلك أكثر من 15 عامًا من الخبرة في الرسوم المتحركة وإنتاج الأفلام والتعليم.">Rafraaf was founded by Mariam Khayat, an animation producer and director based in Jeddah, whose animated short The Menace from Above won at the Saudi Film Festival in 2023. She brings more than 15 years of experience across animation, film production and education.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2 data-ar="أفلام قصيرة">Short films</h2>
+        <p class="lede" data-ar="ثلاثة أفلام رسوم متحركة قصيرة كتبتها وأخرجتها مريم خياط.">Three short animations written and directed by Mariam Khayat.</p>
+        <div class="cols">
+          <article class="card">
+            <img class="poster" data-src="TMFA_Poster|https://mariamkhayat.com/TMFA_Poster.jpeg" data-ext="poster" alt="Poster for The Menace from Above" data-ar-alt="ملصق فيلم وحش من السماء" hidden>
+            <span class="tag" data-ar="رسوم متحركة قصيرة · 2023">Short animation · 2023</span>
+            <h3 data-ar="وحش من السماء">The Menace from Above</h3>
+            <span class="ar-title" lang="ar" dir="rtl" data-ar="The Menace from Above" data-ar-latin>وحش من السماء</span>
+            <p data-ar="تنطلق سمكة مرحة خفيفة الظل في رحلة لإنقاذ مخلوقات البحر من وحش بلا قلب، في مياه البحر الأحمر الضحلة.">In the shallow waters of the Red Sea, a happy-go-lucky fish sets out to save the sea creatures from a soulless monster.</p>
+            <p class="award" data-ar="أفضل فيلم رسوم متحركة، مهرجان أفلام السعودية 2023 · أفضل فيلم رسوم متحركة، مهرجان البحرين السينمائي 2024">Best Animation Film, Saudi Film Festival 2023 · Best Animation Film, Bahrain Film Festival 2024</p>
+            <div class="links">
+              <a href="https://www.netflix.com/watch/81780065" target="_blank" rel="noopener" data-ar="شاهد على نتفليكس">Watch on Netflix</a>
+              <a href="https://mariamkhayat.com/menace-from-above.html" target="_blank" rel="noopener" data-ar="التفاصيل">Details</a>
+            </div>
+          </article>
+          <article class="card">
+            <img class="poster" data-src="BFF_Poster|https://mariamkhayat.com/BFF_Poster.jpg" data-ext="poster" alt="Poster for Best Friends Forever" data-ar-alt="ملصق فيلم أصدقاء للأبد" hidden>
+            <span class="tag" data-ar="رسوم متحركة قصيرة · 2020">Short animation · 2020</span>
+            <h3 data-ar="أصدقاء للأبد">Best Friends Forever</h3>
+            <span class="ar-title" lang="ar" dir="rtl" data-ar="Best Friends Forever" data-ar-latin>أصدقاء للأبد</span>
+            <p data-ar="فيلم مدته دقيقة واحدة بلا حوار. حين يهاجم القلقُ الشخصَ، تجعله كل طريقة تقليدية للتعامل معه أشد ضراوة.">A one-minute film without dialogue. When Anxiety attacks Person, every conventional way of coping makes it strike harder.</p>
+            <p class="award" data-ar="جائزة اختيار الجمهور، مسابقة مينتور العربية للتوعية الشبابية 2022">Audience Choice, Mentor Arabia Youth Awareness Competition 2022</p>
+            <div class="links">
+              <a href="https://youtu.be/8O4W0nwX1aQ" target="_blank" rel="noopener" data-ar="شاهد على يوتيوب">Watch on YouTube</a>
+              <a href="https://mariamkhayat.com/best-friends-forever.html" target="_blank" rel="noopener" data-ar="التفاصيل">Details</a>
+            </div>
+          </article>
+          <article class="card">
+            <img class="poster" data-src="LOTH_Poster|https://mariamkhayat.com/LOTH_Poster.jpg" data-ext="poster" alt="Poster for Labyrinth of the Heart" data-ar-alt="ملصق فيلم متاهة قلب" hidden>
+            <span class="tag" data-ar="رسوم متحركة رقمية ثنائية الأبعاد · 2018">2D digital short · 2018</span>
+            <h3 data-ar="متاهة قلب">Labyrinth of the Heart</h3>
+            <span class="ar-title" lang="ar" dir="rtl" data-ar="Labyrinth of the Heart" data-ar-latin>متاهة قلب</span>
+            <p data-ar="فقدت غريس قلبها. ولكي تستعيده عليها أن تعبر متاهة، وقلبها يغيّر اتجاهه باستمرار.">Grace has lost her heart. To get it back, she has to cross a labyrinth, and her heart keeps changing direction.</p>
+            <p class="award" data-ar="أفضل فيلم طلابي، مهرجان قابس الأخضر السينمائي 2018">Best Student Film, Green Gabès Film Festival 2018</p>
+            <div class="links">
+              <a href="https://youtu.be/becQcpYGl-U" target="_blank" rel="noopener" data-ar="شاهد على يوتيوب">Watch on YouTube</a>
+              <a href="https://mariamkhayat.com/labyrinth-of-the-heart.html" target="_blank" rel="noopener" data-ar="التفاصيل">Details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="view" id="view-contact" hidden>
+      <div class="profile-head">
+        <p class="eyebrow" data-ar="تواصل معنا">Contact</p>
+        <h1 style="margin-top:10px" data-ar="يسعدنا أن نسمع منك">Get in touch</h1>
+        <p class="role" style="max-width:34rem" data-ar="للاستفسار عن زحل وأعمال استوديوهات رَفراف.">For questions about Zohal and the work of Rafraaf Studios.</p>
+      </div>
+      <div class="icons">
+        <a class="icon-btn" href="https://www.instagram.com/rafraafstudios/" target="_blank" rel="noopener" aria-label="Instagram" data-ar-aria="إنستغرام">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.youtube.com/@RafraafStudios" target="_blank" rel="noopener" aria-label="YouTube" data-ar-aria="يوتيوب">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="icon-btn" href="https://x.com/rafraafstudios" target="_blank" rel="noopener" aria-label="X" data-ar-aria="إكس">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <button type="button" class="icon-btn" id="email-btn" aria-label="Email" data-ar-aria="البريد الإلكتروني">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7.5l8 6 8-6"/></svg>
+        </button>
+      </div>
+      <p class="note" id="email-note" role="status" hidden></p>
+      <div style="padding-bottom:48px"></div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <span data-ar="© 2026 استوديوهات رَفراف">© 2026 Rafraaf Studios</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var wrap = document.getElementById("wrap");
+  var views = ["home", "zohal", "about", "contact"];
+  var texts = document.querySelectorAll("[data-ar]");
+  var arias = document.querySelectorAll("[data-ar-aria]");
+  var alts = document.querySelectorAll("[data-ar-alt]");
+  var enOnly = document.querySelectorAll("[data-en-only]");
+  var navLinks = document.querySelectorAll("nav a[data-nav]");
+  var toggle = document.getElementById("lang-toggle");
+  var brand = document.getElementById("brand");
+
+  // remember the English copy so switching back restores it
+  texts.forEach(function (n) { n.setAttribute("data-en", n.textContent); });
+  arias.forEach(function (n) { n.setAttribute("data-en-aria", n.getAttribute("aria-label")); });
+  alts.forEach(function (n) { n.setAttribute("data-en-alt", n.getAttribute("alt")); });
+
+  function setLatin(n, on) {
+    if (on) {
+      n.lang = "en"; n.dir = "ltr";
+      n.style.fontFamily = "'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif";
+      n.style.fontSize = "1rem";
+    } else {
+      n.lang = "ar"; n.dir = "rtl";
+      n.style.fontFamily = ""; n.style.fontSize = "";
+    }
+  }
+
+  function parse() {
+    var h = (location.hash || "").replace("#", "");
+    if (h === "en") h = "en-home";
+    var m = /^(en-)?(home|zohal|about|contact)$/.exec(h);
+    return { lang: m && m[1] ? "en" : "ar", view: m ? m[2] : "home" };
+  }
+
+  function render() {
+    var r = parse(), ar = r.lang === "ar";
+    document.getElementById("email-note").hidden = true;
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
+    wrap.lang = ar ? "ar" : "en";
+    wrap.dir = ar ? "rtl" : "ltr";
+    texts.forEach(function (n) {
+      n.textContent = ar ? n.getAttribute("data-ar") : n.getAttribute("data-en");
+      if (n.hasAttribute("data-ar-latin")) setLatin(n, ar);
+    });
+    arias.forEach(function (n) {
+      n.setAttribute("aria-label", ar ? n.getAttribute("data-ar-aria") : n.getAttribute("data-en-aria"));
+    });
+    alts.forEach(function (n) {
+      n.setAttribute("alt", ar ? n.getAttribute("data-ar-alt") : n.getAttribute("data-en-alt"));
+    });
+    enOnly.forEach(function (n) { n.hidden = ar; });
+
+    var prefix = ar ? "#" : "#en-";
+    navLinks.forEach(function (a) {
+      var v = a.getAttribute("data-nav");
+      a.setAttribute("href", prefix + v);
+      if (v === r.view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    brand.setAttribute("href", prefix + "home");
+    document.getElementById("landing-logo").setAttribute("href", prefix + "about");
+    document.getElementById("landing-enter").setAttribute("href", prefix + "about");
+    var ll = document.getElementById("landing-lang");
+    ll.setAttribute("href", ar ? "#en-home" : "#home");
+    ll.textContent = ar ? "English" : "العربية";
+    ll.lang = ar ? "en" : "ar"; ll.dir = ar ? "ltr" : "rtl";
+    wrap.classList.toggle("is-home", r.view === "home");
+    toggle.setAttribute("href", (ar ? "#en-" : "#") + r.view);
+    toggle.textContent = ar ? "English" : "العربية";
+    toggle.lang = ar ? "en" : "ar";
+    toggle.dir = ar ? "ltr" : "rtl";
+
+    views.forEach(function (v) { document.getElementById("view-" + v).hidden = v !== r.view; });
+  }
+
+  var note = document.getElementById("email-note");
+  var emailBtn = document.getElementById("email-btn");
+  emailBtn.addEventListener("click", function () {
+    var addr = ["rafraafstudios", "gmail.com"].join("@");
+    var ar = wrap.lang === "ar";
+    function show(copied) {
+      note.textContent = "";
+      note.appendChild(document.createTextNode(copied ? (ar ? "تم نسخ العنوان: " : "Address copied: ") : (ar ? "العنوان: " : "Address: ")));
+      var span = document.createElement("span");
+      span.dir = "ltr"; span.textContent = addr;
+      note.appendChild(span);
+      note.hidden = false;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function () { show(true); }, function () { show(false); });
+    } else { show(false); }
+    window.location.href = "mailto:" + addr;
+  });
+
+  // Images: each data-src lists names separated by "|". A full URL is tried as-is.
+  // A bare name is tried in the "assets" folder and next to index.html, with common extensions.
+  var EXT = {
+    logo: [".png", ".svg", ".webp", ".PNG"],
+    poster: [".jpg", ".jpeg", ".png", ".webp", ".JPG", ".JPEG", ".PNG"]
+  };
+  function candidates(img) {
+    var exts = EXT[img.getAttribute("data-ext")] || [""];
+    var out = [];
+    img.getAttribute("data-src").split("|").forEach(function (name) {
+      if (/^https?:\/\//.test(name)) { out.push(name); return; }
+      ["assets/assets/", "assets/", ""].forEach(function (dir) {
+        exts.forEach(function (e) { out.push(encodeURI(dir + name + e)); });
+      });
+    });
+    return out;
+  }
+  function loadImg(img, onOk) {
+    var list = candidates(img), i = 0;
+    function next() {
+      if (i >= list.length) {
+        console.warn("[Rafraaf] Image not found. Tried:", list);
+        img.remove(); return;
+      }
+      img.src = list[i++];
+    }
+    img.addEventListener("load", function () { img.hidden = false; if (onOk) onOk(); });
+    img.addEventListener("error", next);
+    next();
+  }
+  loadImg(document.getElementById("logo"), function () {
+    document.getElementById("brand-text").hidden = true;
+  });
+  document.querySelectorAll("img.about-logo").forEach(function (img) {
+    loadImg(img, function () {
+      document.getElementById("about-logo-panel").hidden = false;
+      document.getElementById("about-role").hidden = true;
+    });
+  });
+  document.querySelectorAll("#landing-logo img").forEach(function (img) {
+    loadImg(img, function () { document.getElementById("landing-fallback").hidden = true; });
+  });
+  document.querySelectorAll("img.poster").forEach(function (img) { loadImg(img); });
+
+  // Tab icon: find favicon.png in assets/, assets/assets/ or next to index.html
+  (function () {
+    var tries = ["assets/favicon.png", "assets/assets/favicon.png", "favicon.png", "Assets/favicon.png"], i = 0;
+    var probe = new Image();
+    probe.onload = function () { document.getElementById("favicon").href = tries[i - 1]; };
+    probe.onerror = function () { if (i < tries.length) probe.src = tries[i++]; };
+    probe.src = tries[i++];
+  })();
+
+  window.addEventListener("hashchange", function () { render(); window.scrollTo(0, 0); });
+  render();
+})();
+</script>
+</body>
+</html>
