@@ -122,8 +122,26 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 .profile-head { padding-block: 28px 40px; }
 
 .brand img { height: 40px; width: auto; display: block; }
-.logo-panel { display: inline-block; background: #F7F8FC; border-radius: 12px; padding: 20px 28px; margin-top: 20px; max-width: 100%; }
-.logo-panel img { display: block; height: 80px; width: auto; max-width: 100%; }
+/* About logo: no panel behind it, about half the screen on desktop, near full width on phones */
+.logo-panel { display: block; margin-top: 28px; }
+.logo-panel img { display: block; width: min(100%, 50vw); min-width: min(100%, 22rem); height: auto; }
+@media (max-width: 760px) { .logo-panel img { width: 100%; } }
+
+/* Light/dark logo versions: dark-text logo on light backgrounds, light logo on dark */
+.logo-on-dark { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  .logo-on-light { display: none !important; }
+  .logo-on-dark:not([hidden]) { display: block !important; }
+}
+
+/* Landing: just the logo */
+.landing { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; align-content: center; gap: 28px; padding-block: 40px; text-align: center; }
+.landing-logo { display: block; text-decoration: none; }
+.landing-logo img { width: min(86vw, 44rem); height: auto; margin: 0 auto; }
+.landing-fallback { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(4.5rem, 16vw, 9rem); color: var(--accent-ink); line-height: 1.2; }
+.landing-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.landing-links a { text-decoration: none; font-weight: 600; padding: 8px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+.wrap.is-home header.site, .wrap.is-home footer.site { display: none; }
 .poster { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
 .icons { display: flex; flex-wrap: wrap; gap: 14px; }
 .icon-btn { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; padding: 0; font: inherit; text-decoration: none; }
@@ -157,18 +175,31 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   <header class="site">
     <!-- Logo files: put them in an "assets" folder next to this file (or next to index.html directly).
          Preferred names: rafraaf-logo-horizontal.png and rafraaf-logo-combo.png -->
-    <a class="brand" href="#zohal" id="brand"><img id="logo" data-src="Logo-Horizontal lockup@2x|rafraaf-logo-horizontal|Logo · Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
+    <a class="brand" href="#home" id="brand"><img id="logo" data-src="Logo-Horizontal lockup@2x|rafraaf-logo-horizontal|Logo · Horizontal lockup@2x" data-ext="logo" alt="Rafraaf" hidden><span id="brand-text"><span class="ar" lang="ar" dir="rtl">رَفراف</span><span data-en-only hidden>Rafraaf</span></span></a>
     <nav id="nav" aria-label="Main" data-ar-aria="التنقل الرئيسي">
-      <a href="#zohal" data-nav="zohal" data-ar="زحل">Zohal</a>
       <a href="#about" data-nav="about" data-ar="من نحن">About</a>
+      <a href="#zohal" data-nav="zohal" data-ar="زحل">Zohal</a>
       <a href="#contact" data-nav="contact" data-ar="تواصل معنا">Contact</a>
       <a href="#en-zohal" class="lang" id="lang-toggle" lang="en" dir="ltr">English</a>
     </nav>
   </header>
 
   <main>
+    <!-- LANDING -->
+    <div class="view landing" id="view-home">
+      <a class="landing-logo" href="#about" id="landing-logo" aria-label="Rafraaf, enter the site" data-ar-aria="رَفراف، ادخل إلى الموقع">
+        <img class="logo-on-light" data-src="Rafraaf-Combo2-transparent-darktext@2x" data-ext="logo" alt="" hidden>
+        <img class="logo-on-dark" data-src="Rafraaf-Combo2-transparent@2x" data-ext="logo" alt="" hidden>
+        <span class="landing-fallback" id="landing-fallback" lang="ar" dir="rtl">رَفراف</span>
+      </a>
+      <div class="landing-links">
+        <a href="#about" id="landing-enter" data-ar="ادخل">Enter</a>
+        <a href="#en-home" id="landing-lang" lang="en" dir="ltr">English</a>
+      </div>
+    </div>
+
     <!-- ZOHAL -->
-    <div class="view" id="view-zohal">
+    <div class="view" id="view-zohal" hidden>
       <div class="hero">
         <div>
           <div class="wordmark-ar" lang="ar" dir="rtl">زحل</div>
@@ -239,7 +270,10 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
         <p class="eyebrow" data-ar="من نحن">About</p>
         <h1 style="margin-top:10px" data-ar="استوديوهات رَفراف">Rafraaf Studios</h1>
         <p class="role" id="about-role"><span lang="ar" dir="rtl" style="font-family:var(--font-arabic);font-size:1.4rem;color:var(--accent-ink)">رَفراف</span></p>
-        <div class="logo-panel" id="about-logo-panel" hidden><img id="about-logo" data-src="rafraaf-logo-combo|Rafraaf-Combo2-transparent-darktext@2x" data-ext="logo" alt="Rafraaf Studios"></div>
+        <div class="logo-panel" id="about-logo-panel" hidden>
+          <img class="logo-on-light about-logo" data-src="Rafraaf-Combo2-transparent-darktext@2x|rafraaf-logo-combo" data-ext="logo" alt="Rafraaf Studios" hidden>
+          <img class="logo-on-dark about-logo" data-src="Rafraaf-Combo2-transparent@2x" data-ext="logo" alt="Rafraaf Studios" hidden>
+        </div>
       </div>
       <div class="prose" style="padding-bottom:48px">
         <p data-ar="رَفراف استوديو سعودي للترفيه العائلي، يصنع أفلامًا ومسلسلات أصلية تجمع أفراد العائلة معًا، وألعابًا في المستقبل.">Rafraaf is a Saudi family entertainment studio that creates original films and series for the whole family to enjoy together, and, in time, games.</p>
@@ -339,7 +373,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
 <script>
 (function () {
   var wrap = document.getElementById("wrap");
-  var views = ["zohal", "about", "contact"];
+  var views = ["home", "zohal", "about", "contact"];
   var texts = document.querySelectorAll("[data-ar]");
   var arias = document.querySelectorAll("[data-ar-aria]");
   var alts = document.querySelectorAll("[data-ar-alt]");
@@ -365,8 +399,10 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   }
 
   function parse() {
-    var m = /^(en-)?(zohal|about|contact)$/.exec((location.hash || "").replace("#", ""));
-    return { lang: m && m[1] ? "en" : "ar", view: m ? m[2] : "zohal" };
+    var h = (location.hash || "").replace("#", "");
+    if (h === "en") h = "en-home";
+    var m = /^(en-)?(home|zohal|about|contact)$/.exec(h);
+    return { lang: m && m[1] ? "en" : "ar", view: m ? m[2] : "home" };
   }
 
   function render() {
@@ -394,7 +430,14 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
       a.setAttribute("href", prefix + v);
       if (v === r.view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
-    brand.setAttribute("href", prefix + "zohal");
+    brand.setAttribute("href", prefix + "home");
+    document.getElementById("landing-logo").setAttribute("href", prefix + "about");
+    document.getElementById("landing-enter").setAttribute("href", prefix + "about");
+    var ll = document.getElementById("landing-lang");
+    ll.setAttribute("href", ar ? "#en-home" : "#home");
+    ll.textContent = ar ? "English" : "العربية";
+    ll.lang = ar ? "en" : "ar"; ll.dir = ar ? "ltr" : "rtl";
+    wrap.classList.toggle("is-home", r.view === "home");
     toggle.setAttribute("href", (ar ? "#en-" : "#") + r.view);
     toggle.textContent = ar ? "English" : "العربية";
     toggle.lang = ar ? "en" : "ar";
@@ -455,9 +498,14 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   loadImg(document.getElementById("logo"), function () {
     document.getElementById("brand-text").hidden = true;
   });
-  loadImg(document.getElementById("about-logo"), function () {
-    document.getElementById("about-logo-panel").hidden = false;
-    document.getElementById("about-role").hidden = true;
+  document.querySelectorAll("img.about-logo").forEach(function (img) {
+    loadImg(img, function () {
+      document.getElementById("about-logo-panel").hidden = false;
+      document.getElementById("about-role").hidden = true;
+    });
+  });
+  document.querySelectorAll("#landing-logo img").forEach(function (img) {
+    loadImg(img, function () { document.getElementById("landing-fallback").hidden = true; });
   });
   document.querySelectorAll("img.poster").forEach(function (img) { loadImg(img); });
 
