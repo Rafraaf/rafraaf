@@ -154,7 +154,8 @@ section.block > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; 
 .landing-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .landing-links a { text-decoration: none; font-weight: 600; padding: 8px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
 .wrap.is-home header.site, .wrap.is-home footer.site { display: none; }
-.poster { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
+/* Posters softened slightly so they sit with the site's soft blues */
+.poster { filter: saturate(.72) contrast(.88) brightness(1.04); width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 6px; margin-bottom: 6px; background: var(--line); }
 .icons { display: flex; flex-wrap: wrap; gap: 14px; }
 .icon-btn { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; padding: 0; font: inherit; text-decoration: none; }
 .icon-btn:hover { color: var(--accent-ink); border-color: var(--accent); }
@@ -306,7 +307,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
 
       <section class="block">
         <h2 data-ar="أفلام قصيرة">Short films</h2>
-        <p class="lede" data-ar="أفلام قصيرة من كتابة وإخراج وإنتاج المؤسِّسة مريم خياط، وفيلم «سليق» من إنتاجها">Short films written, directed and produced by founder Mariam Khayat, and Saleeg, which she produced</p>
+        <p class="lede" data-ar="أفلام قصيرة من كتابة وإخراج وإنتاج المؤسِّسة مريم خياط، وفيلم &quot;سليق&quot; من إنتاجها">Short films written, directed and produced by founder Mariam Khayat, and Saleeg, which she produced</p>
         <div class="cols">
           <article class="card">
             <img class="poster" data-src="TMFA_Poster" data-ext="poster" alt="Poster for The Menace from Above" data-ar-alt="ملصق فيلم وحش من السماء" hidden>
@@ -375,7 +376,7 @@ footer.site { padding-block: 32px 40px; border-top: 1px solid var(--line); color
   </main>
 
   <footer class="site">
-    <span data-ar="© ٢٠٢٦ استوديوهات رَفراف">© 2026 Rafraaf Studios</span>
+    <span data-ar="© ٢٠٢٦ استوديوهات رفراف">© 2026 Rafraaf Studios</span>
   </footer>
 </div>
 
